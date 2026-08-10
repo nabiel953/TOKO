@@ -1,0 +1,118 @@
+// Ambil parameter ID dari URL
+function getProductIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return parseInt(urlParams.get('id'));
+}
+
+// Tampilkan detail produk
+function displayProductDetail() {
+    const productId = getProductIdFromUrl();
+    const product = sepatuData.find(p => p.id === productId);
+    
+    if (!product) {
+        window.location.href = 'katalog.html';
+        return;
+    }
+    
+    const detailContainer = document.getElementById('detail-content');
+    
+    // Buat HTML untuk detail produk
+    const detailHTML = `
+        <div class="gallery">
+            <img src="${product.gambar}" alt="${product.nama}" class="main-image">
+        </div>
+        <div>
+            <h2 style="color: var(--primary-dark); margin-bottom: 1rem;">${product.nama}</h2>
+            <p class="brand" style="margin-bottom: 1rem;">${product.merek}</p>
+            <p class="price" style="font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem;">
+                Rp ${product.harga.toLocaleString('id-ID')}
+            </p>
+            <p style="margin-bottom: 1.5rem;">${product.deskripsi}</p>
+            
+            <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Spesifikasi</h3>
+            <ul class="specifications">
+                <li><strong>Jarak Tempuh:</strong> ${product.jarakTempuh}</li>
+                <li><strong>Bahan:</strong> ${product.spesifikasi.bahan}</li>
+                <li><strong>Sol:</strong> ${product.spesifikasi.sol}</li>
+                <li><strong>Bobot:</strong> ${product.spesifikasi.bobot}</li>
+                <li><strong>Warna:</strong> ${product.spesifikasi.warna}</li>
+            </ul>
+            
+            <button onclick="showOrderForm(${product.id})" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">
+                Pesan Sekarang
+            </button>
+        </div>
+    `;
+    
+    detailContainer.innerHTML = detailHTML;
+}
+
+// Tampilkan form pemesanan
+function showOrderForm(productId) {
+    const product = sepatuData.find(p => p.id === productId);
+    const formContainer = document.getElementById('form-pemesanan');
+    
+    // Isi form dengan data produk
+    document.getElementById('product-id').value = product.id;
+    document.getElementById('model').value = product.nama;
+    
+    // Isi dropdown ukuran
+    const sizeSelect = document.getElementById('size');
+    sizeSelect.innerHTML = '<option value="">Pilih Ukuran</option>';
+    product.ukuran.forEach(size => {
+        sizeSelect.innerHTML += `<option value="${size}">${size}</option>`;
+    });
+    
+    // Tampilkan form
+    formContainer.style.display = 'block';
+    
+    // Scroll ke form
+    formContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Validasi dan submit form
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    // Ambil nilai form
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const size = document.getElementById('size').value;
+    const quantity = document.getElementById('quantity').value;
+    
+    // Validasi dasar
+    if (!name) {
+        alert('Nama harus diisi!');
+        return;
+    }
+    
+    if (!email || !email.includes('@')) {
+        alert('Email tidak valid!');
+        return;
+    }
+    
+    if (!size) {
+        alert('Pilih ukuran sepatu!');
+        return;
+    }
+    
+    if (!quantity || quantity < 1) {
+        alert('Jumlah minimal 1!');
+        return;
+    }
+    
+    // Tampilkan alert sukses
+    alert(`Pemesanan Berhasil!\n\nDetail Pesanan:\nNama: ${name}\nEmail: ${email}\nModel: ${document.getElementById('model').value}\nUkuran: ${size}\nJumlah: ${quantity}\n\nTerima kasih telah memesan di Toko Sepatu!`);
+    
+    // Reset form
+    event.target.reset();
+    document.getElementById('model').value = '';
+}
+
+// Inisialisasi halaman detail
+document.addEventListener('DOMContentLoaded', function() {
+    displayProductDetail();
+    
+    // Event listener untuk form
+    document.getElementById('order-form').addEventListener('submit', handleFormSubmit);
+});
