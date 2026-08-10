@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Sepatu - Katalog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">TOKO SEPATU</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="katalog.html">Katalog</a></li>
+                    <li><a href="detail.html">Detail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2 class="section-title">Katalog Sepatu</h2>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <select id="filter-brand">
+                    <option value="">Semua Merek</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Converse">Converse</option>
+                    <option value="New Balance">New Balance</option>
+                </select>
+                
+                <select id="filter-price">
+                    <option value="">Semua Harga</option>
+                    <option value="0-1000000">Di bawah Rp 1.000.000</option>
+                    <option value="1000000-1300000">Rp 1.000.000 - Rp 1.300.000</option>
+                    <option value="1300000-9999999">Di atas Rp 1.300.000</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid" id="catalog-products">
+            <!-- Diisi oleh JavaScript -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Toko Sepatu. All rights reserved.</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/filter.js"></script>
+</body>
+</html>
