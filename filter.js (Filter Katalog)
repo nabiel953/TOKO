@@ -1,0 +1,54 @@
+// Menampilkan semua produk di katalog
+function displayProducts(products) {
+    const catalogContainer = document.getElementById('catalog-products');
+    catalogContainer.innerHTML = '';
+    
+    products.forEach(product => {
+        const card = `
+            <div class="product-card">
+                <img src="${product.gambar}" alt="${product.nama}">
+                <div class="product-info">
+                    <h3>${product.nama}</h3>
+                    <p class="brand">${product.merek}</p>
+                    <p class="price">Rp ${product.harga.toLocaleString('id-ID')}</p>
+                    <p class="specs">Jarak tempuh: ${product.jarakTempuh}</p>
+                    <a href="detail.html?id=${product.id}" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Lihat Detail</a>
+                </div>
+            </div>
+        `;
+        catalogContainer.innerHTML += card;
+    });
+}
+
+// Filter produk berdasarkan merek dan harga
+function filterProducts() {
+    const brandFilter = document.getElementById('filter-brand').value;
+    const priceFilter = document.getElementById('filter-price').value;
+    
+    let filteredProducts = [...sepatuData];
+    
+    // Filter berdasarkan merek
+    if (brandFilter) {
+        filteredProducts = filteredProducts.filter(product => product.merek === brandFilter);
+    }
+    
+    // Filter berdasarkan harga
+    if (priceFilter) {
+        const [minPrice, maxPrice] = priceFilter.split('-').map(Number);
+        filteredProducts = filteredProducts.filter(product => {
+            return product.harga >= minPrice && product.harga <= maxPrice;
+        });
+    }
+    
+    displayProducts(filteredProducts);
+}
+
+// Event listeners untuk filter
+document.addEventListener('DOMContentLoaded', function() {
+    // Tampilkan semua produk saat halaman dimuat
+    displayProducts(sepatuData);
+    
+    // Tambahkan event listener untuk filter
+    document.getElementById('filter-brand').addEventListener('change', filterProducts);
+    document.getElementById('filter-price').addEventListener('change', filterProducts);
+});
