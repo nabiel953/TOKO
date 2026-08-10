@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Sepatu - Beranda</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">TOKO SEPATU</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="katalog.html">Katalog</a></li>
+                    <li><a href="detail.html">Detail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Koleksi Sepatu Terbaik</h1>
+            <p>Temukan sepatu impian Anda dengan kualitas terbaik dan harga terjangkau</p>
+            <a href="katalog.html" class="btn">Lihat Koleksi</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Sepatu Unggulan</h2>
+        <div class="products-grid" id="featured-products">
+            <!-- Diisi oleh JavaScript -->
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Kami?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">👟</div>
+                    <h3>Kualitas Premium</h3>
+                    <p>Semua produk kami terbuat dari bahan berkualitas tinggi</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Pengiriman Cepat</h3>
+                    <p>Pesanan Anda akan dikirim dalam 24 jam</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h3>Garansi 30 Hari</h3>
+                    <p>Garansi pengembalian jika tidak puas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Toko Sepatu. All rights reserved.</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script>
+        // Menampilkan 3 produk unggulan di beranda
+        const featuredContainer = document.getElementById('featured-products');
+        const featuredProducts = sepatuData.slice(0, 3);
+        
+        featuredProducts.forEach(product => {
+            const card = `
+                <div class="product-card">
+                    <img src="${product.gambar}" alt="${product.nama}">
+                    <div class="product-info">
+                        <h3>${product.nama}</h3>
+                        <p class="brand">${product.merek}</p>
+                        <p class="price">Rp ${product.harga.toLocaleString('id-ID')}</p>
+                        <p class="specs">Jarak tempuh: ${product.jarakTempuh}</p>
+                        <a href="detail.html?id=${product.id}" class="btn btn-primary" style="margin-top: 1rem;">Lihat Detail</a>
+                    </div>
+                </div>
+            `;
+            featuredContainer.innerHTML += card;
+        });
+    </script>
+</body>
+</html>
