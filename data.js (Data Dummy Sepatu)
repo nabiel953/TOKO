@@ -1,0 +1,105 @@
+// Data dummy sepatu
+const sepatuData = [
+    {
+        id: 1,
+        nama: "Nike Air Max 2024",
+        merek: "Nike",
+        harga: 1200000,
+        kategori: "Olahraga",
+        ukuran: [38, 39, 40, 41, 42, 43],
+        jarakTempuh: "10 km",
+        gambar: "https://via.placeholder.com/300x300/2d6a4f/ffffff?text=Nike+Air+Max",
+        deskripsi: "Sepatu lari premium dengan teknologi Air Max untuk kenyamanan maksimal saat berlari jarak jauh.",
+        spesifikasi: {
+            bahan: "Mesh dan Synthetic",
+            sol: "Rubber",
+            bobot: "280 gram",
+            warna: "Hitam/Putih"
+        }
+    },
+    {
+        id: 2,
+        nama: "Adidas Ultraboost",
+        merek: "Adidas",
+        harga: 1500000,
+        kategori: "Lari",
+        ukuran: [37, 38, 39, 40, 41, 42, 44],
+        jarakTempuh: "15 km",
+        gambar: "https://via.placeholder.com/300x300/40916c/ffffff?text=Adidas+Ultraboost",
+        deskripsi: "Sepatu lari revolusioner dengan teknologi Boost yang memberikan energi kembali di setiap langkah.",
+        spesifikasi: {
+            bahan: "Primeknit",
+            sol: "Continental Rubber",
+            bobot: "310 gram",
+            warna: "Putih/Core Black"
+        }
+    },
+    {
+        id: 3,
+        nama: "Converse Chuck Taylor",
+        merek: "Converse",
+        harga: 850000,
+        kategori: "Kasual",
+        ukuran: [36, 37, 38, 39, 40, 41],
+        jarakTempuh: "5 km",
+        gambar: "https://via.placeholder.com/300x300/52b788/ffffff?text=Converse+Chuck",
+        deskripsi: "Sepatu kasual klasik yang tidak pernah ketinggalan zaman, cocok untuk gaya sehari-hari.",
+        spesifikasi: {
+            bahan: "Canvas",
+            sol: "Rubber",
+            bobot: "350 gram",
+            warna: "Putih Klasik"
+        }
+    },
+    {
+        id: 4,
+        nama: "Nike Air Force 1",
+        merek: "Nike",
+        harga: 1350000,
+        kategori: "Kasual",
+        ukuran: [37, 38, 39, 40, 41, 42, 43],
+        jarakTempuh: "8 km",
+        gambar: "https://via.placeholder.com/300x300/2d6a4f/ffffff?text=Air+Force+1",
+        deskripsi: "Ikon streetwear abadi dengan desain klasik Nike Air Force 1 yang legendaris.",
+        spesifikasi: {
+            bahan: "Leather",
+            sol: "Rubber",
+            bobot: "420 gram",
+            warna: "Putih/White"
+        }
+    },
+    {
+        id: 5,
+        nama: "Adidas Stan Smith",
+        merek: "Adidas",
+        harga: 950000,
+        kategori: "Kasual",
+        ukuran: [36, 37, 38, 39, 40, 41],
+        jarakTempuh: "5 km",
+        gambar: "https://via.placeholder.com/300x300/40916c/ffffff?text=Stan+Smith",
+        deskripsi: "Sepatu tenis klasik yang menjadi ikon fashion, simpel namun elegan untuk berbagai kesempatan.",
+        spesifikasi: {
+            bahan: "Leather",
+            sol: "Rubber",
+            bobot: "350 gram",
+            warna: "Putih/Hijau"
+        }
+    },
+    {
+        id: 6,
+        nama: "New Balance 574",
+        merek: "New Balance",
+        harga: 1100000,
+        kategori: "Lari",
+        ukuran: [38, 39, 40, 41, 42, 43, 44],
+        jarakTempuh: "12 km",
+        gambar: "https://via.placeholder.com/300x300/74c69d/ffffff?text=New+Balance+574",
+        deskripsi: "Sepatu lari dengan desain retro yang memadukan gaya klasik dan teknologi modern untuk kenyamanan optimal.",
+        spesifikasi: {
+            bahan: "Suede dan Mesh",
+            sol: "ENCAP",
+            bobot: "320 gram",
+            warna: "Abu-abu/Navy"
+        }
+    }
+];
